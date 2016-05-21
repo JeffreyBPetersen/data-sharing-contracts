@@ -36,11 +36,11 @@ contract SignedAgreementRecord {
         agreementIDs[agreementID].signers[msg.sender] = true;
     }
     
-    function getHash(uint agreementID) returns (bytes32 hash){
+    function getHash(uint agreementID) constant returns (bytes32 hash){
         return agreementIDs[agreementID].hash;
     }
     
-    function getSignedBy(uint agreementID, address potentialSigner) returns (bool didSign){
+    function getSignedBy(uint agreementID, address potentialSigner) constant returns (bool didSign){
         return agreementIDs[agreementID].signers[potentialSigner];
     }
 }
@@ -96,15 +96,15 @@ contract BasicDataSharingRecord {
         return files[fileNumber].manager;
     }
     
-    function getHash(uint fileNumber) returns (bytes32 hash){
+    function getHash(uint fileNumber) constant returns (bytes32 hash){
         return files[fileNumber].hash;
     }
     
-    function getIsSharedWith(uint fileNumber, address potentiallySharedWith) returns (bool isSharedWith){
+    function getIsSharedWith(uint fileNumber, address potentiallySharedWith) constant returns (bool isSharedWith){
         return files[fileNumber].sharedWith[potentiallySharedWith];
     }
     
-    function getWasRequestedBy(uint fileNumber, address potentiallyRequestedBy) returns (bool wasRequestedBy){
+    function getWasRequestedBy(uint fileNumber, address potentiallyRequestedBy) constant returns (bool wasRequestedBy){
         return files[fileNumber].requestedBy[potentiallyRequestedBy];
     }
     
