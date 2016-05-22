@@ -1,24 +1,4 @@
-/*
-    general assumptions:
-    Anyone directly interacting with the system is represented by either an account key or contract.
-        Representation via contract allows for arbitrarily complex logic to be involved in taking actions through it.
-            A simple case would be requiring multiple signatures from within the represented organization.
-    Any tasks which don't notably benefit from an irrefutable public record are better suited to implementation within programs other than the contracts themselves.
-        This keeps the contracts cheap to operate and affords significantly more flexibility in later changes to how the overall system functions.
-        A major case would be interfaces that filter stewards to only display those that meet the requirements for official recognition.
-    It is significantly easier and cheaper to control which content is visible in interfaces to contracts than to limit what content can be added to the contracts
-*/
-
-/*
-    use to upload records of agreements via hash and digitally sign agreements
-    
-    example usage:
-    A copy of the steward requirements is uploaded to start. (https://docs.google.com/document/d/1tjVikBPxPgHQoq5wnqgrFVnz904-iEaI3ahxTci6yw4)
-    When a new steward wants to join and receive official recognition, then they must sign the agreement.
-    When a steward is adding a new participant to the system, then they must digitize the agreement made with the participant, upload it, and sign it.
-    Any other agreements can be added to the record as needed.
-    The main challenge/cost is likely establishing legal recognition for the stewards' digital signatures in order to begin using them.
-*/
+// dependency, see main contract below
 contract SignedAgreementRecord {
     struct Agreement {
         bytes32 hash;
